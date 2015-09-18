@@ -3,7 +3,7 @@
 This is a simplified C++ interface to PAPI. How to use:
 
     #inclue "papi-simple.h"
-    PAPI papi( {PAPI_FDV_INS} ); // Create the PAPI object
+    PAPI papi( {PAPI_FDV_INS, /*Other events*/} ); // Create the PAPI object
     papi.start_counting();
     // Do stuff involving floating point instructions...
     std::vector<long long int> results = papi.stop_counting();
