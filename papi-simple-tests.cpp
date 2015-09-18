@@ -23,9 +23,10 @@
 using std::chrono::high_resolution_clock;
 using std::chrono::duration;
 using std::chrono::duration_cast;
+using std::size_t;
 
 int main() {
-  PAPI papi;
+  PAPI papi({PAPI_FDV_INS});
 
   // Create a c++11 random number generator
   std::mt19937 randomNumberEngine;
@@ -34,7 +35,7 @@ int main() {
   // Start timing
   const high_resolution_clock::time_point tic =
     high_resolution_clock::now();
-  papi.startCounting( {PAPI_FDV_INS} );
+  papi.start_counting();
 
 
   // We'll record how many floating point divides are used to generate a
@@ -50,7 +51,7 @@ int main() {
   // Stop timing
   const high_resolution_clock::time_point toc =
     high_resolution_clock::now();
-  const size_t numberOfDivisions = papi.getEvents()[0];
+  const size_t numberOfDivisions = papi.stop_counting()[0];
   const double elapsedTime =
     duration_cast<duration<double> >(toc - tic).count();
 

@@ -1,4 +1,4 @@
-CXXFLAGS += -std=c++11 -Wall -Wextra -pedantic -g
+CXXFLAGS += -std=c++11 -Wall -Wextra -pedantic -O3
 LD_FLAGS = -lpapi
 
 TARGETS = papi-simple-tests

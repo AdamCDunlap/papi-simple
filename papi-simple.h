@@ -5,17 +5,18 @@
 class PAPI
 {
 
-    size_t num_events;
-    int eventSet;
+    int event_set;
+    std::vector<long long int> counts_buf;
+    std::vector<long long int> dummy_buf;
 
-    void
-    handlePapiError(const int papiReturnVal);
+    void handle_papi_error(const int papiReturnVal);
 
 public:
 
-    PAPI();
+    PAPI(std::vector<int> events);
+    ~PAPI();
 
-    void startCounting(std::vector<int> events);
+    void start_counting();
 
-    std::vector<long long int> getEvents();
+    std::vector<long long int> stop_counting();
 };
