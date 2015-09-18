@@ -1,3 +1,6 @@
 .*.un~
 .*.sw*
 .ycm_extra_conf.py
+*.pyc
+*.o
+papi-simple-tests
